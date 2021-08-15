@@ -37,6 +37,7 @@ func main() {
 
 	// routing
 	router.HandleFunc("/auth/login", authHandler.Login).Methods(http.MethodPost)
+	router.HandleFunc("/auth/verify", authHandler.Verify).Methods(http.MethodGet)
 
 	// starting server
 	logger.Info("Starting the auth service ...")

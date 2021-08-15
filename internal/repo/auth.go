@@ -2,6 +2,7 @@ package repo
 
 import (
 	"database/sql"
+	"strings"
 	"time"
 
 	"github.com/danisbagus/semimarket-auth/internal/core/domain"
@@ -13,6 +14,11 @@ import (
 )
 
 const ACCESS_TOKEN_DURATION = time.Hour
+
+var RolePermissionsList = map[string][]string{
+	"admin": {"GetProductList", "GetProductDetail", "NewProduct", "NewTransaction"},
+	"user":  {"GetProductList", "GetProductDetail", "NewTransaction"},
+}
 
 type AuthRepo struct {
 	db *sqlx.DB
@@ -38,4 +44,15 @@ func (r AuthRepo) FindOne(username string, password string) (*domain.Login, *err
 		}
 	}
 	return &login, nil
+}
+
+func (r AuthRepo) VerifyAuthorization(role string, routeName string) bool {
+	perms := RolePermissionsList[role]
+	for _, r := range perms {
+		if r == strings.TrimSpace(routeName) {
+			return true
+		}
+	}
+	return false
+
 }
