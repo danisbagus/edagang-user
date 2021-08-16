@@ -8,8 +8,8 @@ import (
 	"github.com/danisbagus/semimarket-auth/internal/dto"
 	"github.com/dgrijalva/jwt-go"
 
-	"github.com/danisbagus/semimarket-auth/pkg/errs"
-	"github.com/danisbagus/semimarket-auth/pkg/logger"
+	"github.com/danisbagus/semimarket-lib/errs"
+	"github.com/danisbagus/semimarket-lib/logger"
 )
 
 type AuthService struct {

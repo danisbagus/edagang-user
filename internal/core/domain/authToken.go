@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/danisbagus/semimarket-auth/pkg/errs"
-	"github.com/danisbagus/semimarket-auth/pkg/logger"
+	"github.com/danisbagus/semimarket-lib/errs"
+	"github.com/danisbagus/semimarket-lib/logger"
 	"github.com/dgrijalva/jwt-go"
 )
 

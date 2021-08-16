@@ -6,7 +6,7 @@ import (
 	"github.com/danisbagus/semimarket-auth/internal/core/service"
 	"github.com/danisbagus/semimarket-auth/internal/handler"
 	"github.com/danisbagus/semimarket-auth/internal/repo"
-	"github.com/danisbagus/semimarket-auth/pkg/logger"
+	"github.com/danisbagus/semimarket-lib/logger"
 
 	"net/http"
 	"time"

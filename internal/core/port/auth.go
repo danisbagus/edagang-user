@@ -3,7 +3,7 @@ package port
 import (
 	"github.com/danisbagus/semimarket-auth/internal/core/domain"
 	"github.com/danisbagus/semimarket-auth/internal/dto"
-	"github.com/danisbagus/semimarket-auth/pkg/errs"
+	"github.com/danisbagus/semimarket-lib/errs"
 )
 
 type IAuthRepo interface {

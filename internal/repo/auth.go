@@ -7,8 +7,8 @@ import (
 
 	"github.com/danisbagus/semimarket-auth/internal/core/domain"
 	"github.com/danisbagus/semimarket-auth/internal/core/port"
-	"github.com/danisbagus/semimarket-auth/pkg/errs"
-	"github.com/danisbagus/semimarket-auth/pkg/logger"
+	"github.com/danisbagus/semimarket-lib/errs"
+	"github.com/danisbagus/semimarket-lib/logger"
 
 	"github.com/jmoiron/sqlx"
 )

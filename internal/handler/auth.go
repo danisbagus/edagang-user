@@ -6,7 +6,7 @@ import (
 
 	"github.com/danisbagus/semimarket-auth/internal/core/port"
 	"github.com/danisbagus/semimarket-auth/internal/dto"
-	"github.com/danisbagus/semimarket-auth/pkg/logger"
+	"github.com/danisbagus/semimarket-lib/logger"
 )
 
 type AuthHandler struct {
