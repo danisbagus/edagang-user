@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/danisbagus/semimarket-auth/internal/core/port"
-	"github.com/danisbagus/semimarket-auth/internal/dto"
-	"github.com/danisbagus/semimarket-lib/logger"
+	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-user/internal/core/port"
+	"github.com/danisbagus/edagang-user/internal/dto"
 )
 
 type AuthHandler struct {

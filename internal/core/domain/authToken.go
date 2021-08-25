@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/danisbagus/semimarket-lib/errs"
-	"github.com/danisbagus/semimarket-lib/logger"
+	"github.com/danisbagus/edagang-package/errs"
+	"github.com/danisbagus/edagang-package/logger"
 	"github.com/dgrijalva/jwt-go"
 )
 

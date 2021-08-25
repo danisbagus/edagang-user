@@ -3,13 +3,13 @@ package service
 import (
 	"fmt"
 
-	"github.com/danisbagus/semimarket-auth/internal/core/domain"
-	"github.com/danisbagus/semimarket-auth/internal/core/port"
-	"github.com/danisbagus/semimarket-auth/internal/dto"
+	"github.com/danisbagus/edagang-user/internal/core/domain"
+	"github.com/danisbagus/edagang-user/internal/core/port"
+	"github.com/danisbagus/edagang-user/internal/dto"
 	"github.com/dgrijalva/jwt-go"
 
-	"github.com/danisbagus/semimarket-lib/errs"
-	"github.com/danisbagus/semimarket-lib/logger"
+	"github.com/danisbagus/edagang-package/errs"
+	"github.com/danisbagus/edagang-package/logger"
 )
 
 type AuthService struct {

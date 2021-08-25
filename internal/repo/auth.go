@@ -5,10 +5,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/danisbagus/semimarket-auth/internal/core/domain"
-	"github.com/danisbagus/semimarket-auth/internal/core/port"
-	"github.com/danisbagus/semimarket-lib/errs"
-	"github.com/danisbagus/semimarket-lib/logger"
+	"github.com/danisbagus/edagang-package/errs"
+	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-user/internal/core/domain"
+	"github.com/danisbagus/edagang-user/internal/core/port"
 
 	"github.com/jmoiron/sqlx"
 )

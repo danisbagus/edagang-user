@@ -1,9 +1,9 @@
 package port
 
 import (
-	"github.com/danisbagus/semimarket-auth/internal/core/domain"
-	"github.com/danisbagus/semimarket-auth/internal/dto"
-	"github.com/danisbagus/semimarket-lib/errs"
+	"github.com/danisbagus/edagang-package/errs"
+	"github.com/danisbagus/edagang-user/internal/core/domain"
+	"github.com/danisbagus/edagang-user/internal/dto"
 )
 
 type IAuthRepo interface {

@@ -1,7 +1,7 @@
 package dto
 
 import (
-	"github.com/danisbagus/semimarket-lib/errs"
+	"github.com/danisbagus/edagang-package/errs"
 	validation "github.com/go-ozzo/ozzo-validation"
 )
 

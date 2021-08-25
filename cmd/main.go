@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
-	"github.com/danisbagus/semimarket-auth/internal/core/service"
-	"github.com/danisbagus/semimarket-auth/internal/handler"
-	"github.com/danisbagus/semimarket-auth/internal/repo"
-	"github.com/danisbagus/semimarket-lib/logger"
+	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-user/internal/core/service"
+	"github.com/danisbagus/edagang-user/internal/handler"
+	"github.com/danisbagus/edagang-user/internal/repo"
 
 	"net/http"
 	"time"

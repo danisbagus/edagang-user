@@ -1,2 +1,2 @@
 # semimarket-auth
-Simple E-commerce Application
+Simple E-Commerce Application
