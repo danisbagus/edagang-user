@@ -1,8 +1,8 @@
 package domain
 
 import (
-	"github.com/danisbagus/edagang-package/errs"
-	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-pkg/errs"
+	"github.com/danisbagus/edagang-pkg/logger"
 	"github.com/dgrijalva/jwt-go"
 )
 

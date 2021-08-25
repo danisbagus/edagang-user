@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-pkg/logger"
 	"github.com/danisbagus/edagang-user/internal/core/port"
 	"github.com/danisbagus/edagang-user/internal/dto"
 )

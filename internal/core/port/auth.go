@@ -1,7 +1,7 @@
 package port
 
 import (
-	"github.com/danisbagus/edagang-package/errs"
+	"github.com/danisbagus/edagang-pkg/errs"
 	"github.com/danisbagus/edagang-user/internal/core/domain"
 	"github.com/danisbagus/edagang-user/internal/dto"
 )

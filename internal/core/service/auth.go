@@ -8,8 +8,8 @@ import (
 	"github.com/danisbagus/edagang-user/internal/dto"
 	"github.com/dgrijalva/jwt-go"
 
-	"github.com/danisbagus/edagang-package/errs"
-	"github.com/danisbagus/edagang-package/logger"
+	"github.com/danisbagus/edagang-pkg/errs"
+	"github.com/danisbagus/edagang-pkg/logger"
 )
 
 type AuthService struct {
