@@ -18,14 +18,7 @@ import (
 
 func main() {
 	// sql driver
-	client, err := sqlx.Open("mysql", "root:danisbagus@tcp(localhost:9001)/semimarket")
-	if err != nil {
-		panic(err)
-	}
-
-	client.SetConnMaxLifetime(time.Minute * 3)
-	client.SetMaxOpenConns(10)
-	client.SetMaxIdleConns(10)
+	client := GetClient()
 
 	// multiplexer
 	router := mux.NewRouter()
@@ -40,6 +33,19 @@ func main() {
 	router.HandleFunc("/auth/verify", authHandler.Verify).Methods(http.MethodGet)
 
 	// starting server
-	logger.Info("Starting the auth service ...")
+	logger.Info("Starting user service")
 	log.Fatal(http.ListenAndServe("localhost:9010", router))
+}
+
+func GetClient() *sqlx.DB {
+	client, err := sqlx.Open("mysql", "root:danisbagus@tcp(localhost:9001)/edagang")
+	if err != nil {
+		panic(err)
+	}
+
+	client.SetConnMaxLifetime(time.Minute * 3)
+	client.SetMaxOpenConns(10)
+	client.SetMaxIdleConns(10)
+
+	return client
 }
