@@ -45,7 +45,12 @@ func (r AuthService) Login(req dto.LoginRequest) (*dto.LoginResponse, *errs.AppE
 		return nil, appErr
 	}
 
-	return &dto.LoginResponse{AccessToken: accessToken}, nil
+	var refreshToken string
+	if refreshToken, appErr = r.repo.GenerateAndSaveRefreshTokenStore(authToken); appErr != nil {
+		return nil, appErr
+	}
+
+	return &dto.LoginResponse{AccessToken: accessToken, RefreshToken: refreshToken}, nil
 
 }
 
@@ -68,6 +73,29 @@ func (r AuthService) Verify(urlParams map[string]string) *errs.AppError {
 	}
 
 	return nil
+}
+
+func (r AuthService) Refresh(req dto.RefreshTokenRequest) (*dto.LoginResponse, *errs.AppError) {
+	if vErr := req.IsAccessTokenValid(); vErr != nil {
+		if vErr.Errors == jwt.ValidationErrorExpired {
+			// do refresh token
+			var appErr *errs.AppError
+			if appErr = r.repo.RefreshTokenExists(req.RefreshToken); appErr != nil {
+				return nil, appErr
+			}
+
+			// generate access token from refresh token
+			var accessToken string
+			if accessToken, appErr = domain.NewAccessTokenFromRefreshToken(req.RefreshToken); appErr != nil {
+				return nil, appErr
+			}
+
+			return &dto.LoginResponse{AccessToken: accessToken}, nil
+		}
+		return nil, errs.NewAuthenticationError("Invalid token")
+	}
+
+	return nil, errs.NewAuthenticationError("Cannot generate new access token until the current access token expires")
 }
 
 func jwtTokenFromString(tokenString string) (*jwt.Token, error) {

@@ -3,6 +3,7 @@ package domain
 import (
 	"time"
 
+	"github.com/danisbagus/edagang-pkg/errs"
 	"github.com/dgrijalva/jwt-go"
 )
 
@@ -22,4 +23,17 @@ func (r Login) ClaimsForAccessToken() AccessTokenClaims {
 			ExpiresAt: time.Now().Add(ACCESS_TOKEN_DURATION).Unix(),
 		},
 	}
+}
+
+func (r Login) GenerateToken() (*string, *errs.AppError) {
+	claims := r.ClaimsForAccessToken()
+
+	authToken := NewAuthToken(claims)
+	accessToken, appErr := authToken.NewAccessToken()
+
+	if appErr != nil {
+		return nil, appErr
+	}
+
+	return &accessToken, nil
 }

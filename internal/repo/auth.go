@@ -56,3 +56,42 @@ func (r AuthRepo) VerifyAuthorization(role string, routeName string) bool {
 	return false
 
 }
+
+func (r AuthRepo) GenerateAndSaveRefreshTokenStore(authToken domain.AuthToken) (string, *errs.AppError) {
+	// Generate refresh token
+	var refreshToken string
+	var appErr *errs.AppError
+	if refreshToken, appErr = authToken.NewRefreshToken(); appErr != nil {
+		return "", appErr
+	}
+
+	// Store it in the store
+	sqlInsert := "insert into refresh_token_store (refresh_token) values (?)"
+	_, err := r.db.Exec(sqlInsert, refreshToken)
+	if err != nil {
+		logger.Error("Unexpected database error: " + err.Error())
+		return "", errs.NewUnexpectedError("Unexpected database error")
+	}
+
+	return refreshToken, nil
+}
+
+func (r AuthRepo) RefreshTokenExists(refreshToken string) *errs.AppError {
+	sqlSelect := "select refresh_token from refresh_token_store where refresh_token = ?"
+
+	var token string
+
+	err := r.db.Get(&token, sqlSelect, refreshToken)
+	if err != nil {
+		if err == sql.ErrNoRows {
+			logger.Error("Refresh token not registered in the store")
+			return errs.NewAuthenticationError("Refresh token not registered in the store")
+		} else {
+			logger.Error("Unexpected database error: " + err.Error())
+			return errs.NewUnexpectedError("Unexpected database error")
+		}
+
+	}
+
+	return nil
+}
