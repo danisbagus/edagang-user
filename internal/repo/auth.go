@@ -16,7 +16,7 @@ import (
 const ACCESS_TOKEN_DURATION = time.Hour
 
 var RolePermissionsList = map[string][]string{
-	"admin": {"GetProductList", "GetProductDetail", "NewProduct", "NewTransaction", "RemoveProduct"},
+	"admin": {"GetProductList", "GetProductDetail", "NewProduct", "NewTransaction", "RemoveProduct", "UpdateProduct"},
 	"user":  {"GetProductList", "GetProductDetail", "NewTransaction"},
 }
 
